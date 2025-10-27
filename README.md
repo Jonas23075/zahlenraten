@@ -1,47 +1,15 @@
-Alles klar — hier ist eine passende **README.md** für dein Projekt. Du kannst sie 1:1 übernehmen oder anpassen:
-
----
-Starte Env
-flask init-db
-flask run --debug
-
-```markdown
-# Zahlenspiel 🎲  
-Ein kleines Web-Spiel in Flask: Errate eine zufällige Zahl so schnell wie möglich und vergleiche deine Ergebnisse in einer Highscore-Liste.
+# Zahlenraten
+Ein Projekt in Flask
 
 ## 🔧 Technologien & Struktur
 
-- **Python 3**
+- **Python**
 - **Flask** (Web-Framework)
 - **SQLite** (Datenbank)
 - **HTML / CSS** (Templates unter `flaskr/templates`)
+- **JS**
 - **Blueprints** für klare Projektstruktur
 
-Projektstruktur (vereinfacht):
-
-```
-
-zahlenspiel/
-├─ flaskr/
-│  ├─ **init**.py        # App-Factory, Routen, Auth-Logik
-│  ├─ db.py              # Datenbank-Verbindung
-│  ├─ game.py            # Spiel-Logik (Raten)
-│  ├─ scores.py          # Highscore-Anzeige
-│  └─ templates/         # HTML-Templates
-│     ├─ base.html
-│     ├─ index.html
-│     ├─ game.html
-│     ├─ login.html
-│     ├─ register.html
-│     └─ highscores.html
-├─ instance/
-│  └─ zahlenspiel.db     # wird automatisch erstellt
-├─ tests/                # optional
-└─ run.py (falls vorhanden)
-
-````
-
----
 
 ## 🚀 Installation & Start
 
