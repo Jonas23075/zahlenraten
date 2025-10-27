@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Spiel{% endblock %}
+
+{% block content %}
+<div class="game-container">
+
+<h2>Raten Sie die Zahl zwischen 1 und 100</h2>
+
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+
+<form method="post">
+    <input type="number" name="guess" min="1" max="100" required autofocus>
+    <button type="submit">Raten</button>
+</form>
+
+<!-- Anzeige der bisherigen Tipps -->
+<div class="guess-history">
+    {% for value, state in guesses %}
+        {% if state == "low" %}
+            <span class="chip low">{{ value }} ↑</span>
+        {% elif state == "high" %}
+            <span class="chip high">{{ value }} ↓</span>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<p>Versuche bisher: {{ attempts }}</p>
+
+</div>
+{% endblock %}

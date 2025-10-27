@@ -1,0 +1,7 @@
+[project]
+name = "flaskr"
+version = "1.0.0"
+description = "Ein Zahlenraten Spiel mit Flask"
+
+[build-system]
+requires = ["setuptools", "wheel"]

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %} - Zahlenraten</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dark-mode">
+<header>
+  <nav class="navbar">
+    <div class="logo">Zahlenraten</div>
+        <ul class="nav-links">
+        {% if session.get('username') %}
+            <li><a href="{{ url_for('game.game') }}">Spiel</a></li>
+            <li><a href="{{ url_for('scores.highscores') }}">Highscores</a></li>
+            <li><span class="user">{{ session['username'] }}</span></li>
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            <li><a href="{{ url_for('auth.register') }}">Registrieren</a></li>
+        {% endif %}
+    </ul>
+    <div class="mode-switch">
+  <label class="switch">
+    <input type="checkbox" id="modeToggle">
+    <span class="slider">
+      <span class="icon sun">☀️</span>
+      <span class="icon moon">🌙</span>
+    </span>
+  </label>
+</div>
+
+    <div class="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</header>
+
+<section class="content">
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</section>
+
+<script>
+// Responsive Navbar
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+});
+
+// Farbschme Wechsel (Dunkel/Hell) um Konstraste zu verbessern 
+const modeCheckbox = document.getElementById('modeToggle');
+const body = document.body;
+
+const savedMode = localStorage.getItem('mode');
+if (savedMode) {
+    body.classList.add(savedMode);
+    modeCheckbox.checked = savedMode === 'dark-mode';
+} else {
+    body.classList.add('dark-mode');
+    modeCheckbox.checked = true;
+}
+
+modeCheckbox.addEventListener('change', () => {
+    if (modeCheckbox.checked) {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+        localStorage.setItem('mode', 'dark-mode');
+    } else {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
+        localStorage.setItem('mode', 'light-mode');
+    }
+});
+</script>
+</body>
+</html>

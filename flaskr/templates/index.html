@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Startseite{% endblock %}
+{% block content %}
+<h2>Willkommen beim Zahlenraten-Spiel!</h2>
+{% if not session.get('username') %}
+<p><a href="{{ url_for('auth.register') }}">Registrieren</a> oder <a href="{{ url_for('auth.login') }}">Login</a>, um zu spielen.</p>
+{% endif %}
+{% endblock %}

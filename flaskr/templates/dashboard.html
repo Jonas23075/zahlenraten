@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Highscores</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Benutzer</th>
+      <th>Beste Versuche</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+      <tr>
+        <td>{{ user['username'] }}</td>
+        <td>{{ user['best_score'] or '-' }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
