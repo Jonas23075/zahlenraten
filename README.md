@@ -162,28 +162,28 @@ Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und AP
    * Test: Auf Login-Seite `username: ' OR '1'='1` eingeben.
    * Erwartet: Login darf **nicht** funktionieren.
    * Abhilfe: Prepared Statements / parametrisierte Queries (z. B. `sqlite3` mit Platzhaltern) oder ORM (SQLAlchemy).
-    ![alt text](66fe6e708247e973ce51af96_608958ea27293628afb3b58b_SQL_20injection_20work.jpeg)
+    ![alt text](pics/66fe6e708247e973ce51af96_608958ea27293628afb3b58b_SQL_20injection_20work.jpeg)
 
 2. **Cross-Site Scripting (XSS)**
 
    * Test: Benutzername `&lt;script&gt;alert('XSS')&lt;/script&gt;` registrieren und Highscores prüfen.
    * Erwartet: Script darf nicht ausgeführt werden.
    * Abhilfe: Output escapen (Jinja2 escaped standardmäßig) und Eingaben validieren.
-    ![alt text](XSS_Attack.svg)
+    ![alt text](pics/XSS_Attack.svg)
 
 3. **Cross-Site Request Forgery (CSRF)**
 
    * Test: Externe HTML-Form mit POST zur App abschicken.
    * Erwartet: Requests ohne CSRF-Token abweisen.
    * Abhilfe: CSRF-Schutz (z. B. Flask-WTF oder eigene Token-Implementierung).
-    ![alt text](what-is-cross-site-request-forgery.png)
+    ![alt text](pics/what-is-cross-site-request-forgery.png)
 
 4. **Session Management**
 
    * Test: Session-Cookie kopieren und in anderem Client einsetzen.
    * Erwartet: Session darf nicht ohne Authentifizierung nutzbar sein.
    * Abhilfe: Starker `SECRET_KEY`, `session.permanent` und Cookie-Eigenschaften (`HttpOnly`, `Secure` auf HTTPS).
-    ![alt text](What_is_a_session.webp)
+    ![alt text](pics/What_is_a_session.webp)
 
 5. **Directory Traversal**
 
