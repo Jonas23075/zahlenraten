@@ -18,7 +18,6 @@ def close_db(e=None):
 
 def init_db():
     db = get_db()
-    # users (optional, für Login)
     db.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -42,9 +41,8 @@ def init_db():
 
 @click.command("init-db")
 def init_db_command():
-    """Initialisiert die Datenbanktabellen."""
     init_db()
-    click.echo("✅ Datenbank initialisiert.")
+    click.echo("Datenbank initialisiert.")
 
 def init_app(app):
     app.teardown_appcontext(close_db)
