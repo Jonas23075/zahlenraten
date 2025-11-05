@@ -84,10 +84,7 @@ cd zahlenraten
 
 ```bash
 python -m venv .venv
-# Windows
 .venv\Scripts\activate
-# macOS / Linux
-source .venv/bin/activate
 ```
 
 **3) Abhängigkeiten installieren**
@@ -108,7 +105,7 @@ flask init-db
 flask run --debug
 ```
 
-Öffne anschließend `http://127.0.0.1:5000/` im Browser.
+`http://127.0.0.1:5000/` im Browser.
 
 ---
 
