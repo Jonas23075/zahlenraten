@@ -1,12 +1,9 @@
 import functools
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
-)
+from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
 from flaskr.db import get_db
 from flaskr.security import hash_password, verify_password, check_password_policy, needs_rehash
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
-
 
 @bp.route("/register", methods=("GET", "POST"))
 def register():
@@ -56,10 +53,8 @@ def login():
         error = None
         user = db.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
 
-        if user is None:
-            error = "Benutzer nicht gefunden."
-        elif not verify_password(password, user["password"]):
-            error = "Falsches Passwort."
+        if user is None or not verify_password(password, user["password"]):
+            error = "Falscher Benutzername oder Passwort."
 
         if error is None:
             # Optionales Rehash bei geänderter Methode
@@ -90,5 +85,5 @@ def load_logged_in_user():
 @bp.route("/logout")
 def logout():
     session.clear()
-    flash("Erfolgreich ausgeloggt.", "success")
+    flash("Auf wiedersehen", "success")
     return redirect(url_for("auth.login"))

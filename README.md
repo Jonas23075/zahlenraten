@@ -25,6 +25,17 @@ Projektstruktur (Auszug):
 ```
 zahlenraten/
 ├─ flaskr/
+│  ├─ static/
+|  |  ├─ css/
+|  |  ├─ styles.css
+|  |  ├─ js/
+|  |  └game.js
+│  ├─ templates/
+│  │  ├─ base.html
+│  │  ├─ index.html
+│  │  ├─ login.html
+│  │  ├─ register.html
+│  │  └ scores.html
 │  ├─ __init__.py
 │  ├─ auth.py
 │  ├─ game.py
@@ -32,7 +43,17 @@ zahlenraten/
 │  ├─ db.py
 │  ├─ security.py
 │  └─ templates/
+├─ instance/
+│  └zahlenspiel.db
 ├─ tests/
+│  ├─ test_auth.py
+│  ├─ test_game.py
+│  ├─ conftest.py
+│  ├─ test_db.py
+│  └─ test_scores.py
+├─ app.py
+├─ pyproject.toml
+├─ .gitignore
 ├─ requirements.txt
 └─ README.md
 ```
@@ -43,7 +64,7 @@ zahlenraten/
 
 * Session-basiertes Login/Logout
 * Zahlenspiel (1–100) mit Feedback: „zu hoch“ / „zu niedrig"
-* Speicherung von Versuchen in SQLite
+* Speicherung von Versuchen und Users in SQLite
 * Highscore-Tabelle
 * Unit-Tests mit pytest
 * Fokus auf Barrierefreiheit und Security-Hardening
@@ -144,24 +165,28 @@ Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und AP
    * Test: Auf Login-Seite `username: ' OR '1'='1` eingeben.
    * Erwartet: Login darf **nicht** funktionieren.
    * Abhilfe: Prepared Statements / parametrisierte Queries (z. B. `sqlite3` mit Platzhaltern) oder ORM (SQLAlchemy).
+    ![alt text](66fe6e708247e973ce51af96_608958ea27293628afb3b58b_SQL_20injection_20work.jpeg)
 
 2. **Cross-Site Scripting (XSS)**
 
    * Test: Benutzername `&lt;script&gt;alert('XSS')&lt;/script&gt;` registrieren und Highscores prüfen.
    * Erwartet: Script darf nicht ausgeführt werden.
    * Abhilfe: Output escapen (Jinja2 escaped standardmäßig) und Eingaben validieren.
+    ![alt text](XSS_Attack.svg)
 
 3. **Cross-Site Request Forgery (CSRF)**
 
    * Test: Externe HTML-Form mit POST zur App abschicken.
    * Erwartet: Requests ohne CSRF-Token abweisen.
    * Abhilfe: CSRF-Schutz (z. B. Flask-WTF oder eigene Token-Implementierung).
+    ![alt text](what-is-cross-site-request-forgery.png)
 
 4. **Session Management**
 
    * Test: Session-Cookie kopieren und in anderem Client einsetzen.
    * Erwartet: Session darf nicht ohne Authentifizierung nutzbar sein.
    * Abhilfe: Starker `SECRET_KEY`, `session.permanent` und Cookie-Eigenschaften (`HttpOnly`, `Secure` auf HTTPS).
+    ![alt text](What_is_a_session.webp)
 
 5. **Directory Traversal**
 
@@ -170,32 +195,3 @@ Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und AP
    * Abhilfe: Pfad-Normalisierung und Whitelisting; niemals Nutzereingaben direkt in Dateipfade übernehmen.
 
 ---
-
-## ♻️ Weiterentwicklung / To-Do
-
-* Benutzerverwaltung vollständig mit Passwort-Hashing und Account-Management (Already: `werkzeug.security` nutzen)
-* Schwierigkeitsgrade (z. B. 1–100, 1–1000, begrenzte Zeit)
-* API-Endpunkte für Scores (JSON)
-* Verbesserte UI / Animationen
-* Accessibility-Report und Fehlerbehebung
-* Optional: Containerisierung (Docker) für einfache Deployment-Tests
-
----
-
-## 🤝 Mitwirken (Contributing)
-
-1. Forke das Repository
-2. Feature-Branch anlegen
-3. Pull Request mit Beschreibung öffnen
-
-Bitte vor dem Merge sicherstellen: Tests grün, Accessibility-Checks dokumentiert, Security-Checks durchgeführt.
-
----
-
-## 📄 Lizenz
-
-MIT License (oder deine bevorzugte Lizenz) — passe bei Bedarf an.
-
----
-
-> Viel Spaß beim Entwickeln! Wenn du möchtest, formatiere ich das README noch als GitHub-optimierte Version mit Badges, füge ein Beispielbild/Logo hinzu oder exportiere es als PDF.
