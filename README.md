@@ -14,7 +14,7 @@ Das Projekt eignet sich als Lernprojekt für Webentwicklung mit Python/Flask, Se
 
 ## 🔧 Technologien & Struktur
 
-* **Python 3.10+**
+* **Python 3.13.9**
 * **Flask** (Web-Framework)
 * **SQLite** (eingebettete DB)
 * **HTML / CSS / JS** (Templates unter `flaskr/templates`)
@@ -186,7 +186,7 @@ Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und AP
    * Test: Session-Cookie kopieren und in anderem Client einsetzen.
    * Erwartet: Session darf nicht ohne Authentifizierung nutzbar sein.
    * Abhilfe: Starker `SECRET_KEY`, `session.permanent` und Cookie-Eigenschaften (`HttpOnly`, `Secure` auf HTTPS).
-   
+
     ![alt text](pics/What_is_a_session.webp)
 
 5. **Directory Traversal**
