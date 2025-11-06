@@ -4,15 +4,11 @@ Ein einfaches, barrierefreies Zahlenspiel als Flask-Webanwendung.
 
 ---
 
-## 🚀 Kurzbeschreibung
+## Beschreibung
 
-**Zahlenraten** ist ein kleines Flask-Projekt, bei dem sich die Applikation eine Zahl zwischen 1 und 100 ausdenkt und Spieler*innen diese erraten. Die Anzahl der Versuche wird gespeichert und in einer Highscore-Liste angezeigt.
+Zahlenraten ist ein kleines Flask Projekt, bei dem sich die ein Randomizer eine Zahl zwischen 1 und 100 ausdenkt und der Nutzer diese erraten muss. Die Anzahl der Versuche wird gespeichert und in einer Highscore-Liste angezeigt.
 
-Das Projekt eignet sich als Lernprojekt für Webentwicklung mit Python/Flask, Session-Handling, SQLite und grundlegender Web-Security.
-
----
-
-## 🔧 Technologien & Struktur
+## Technologien & Struktur
 
 * **Python 3.13.9**
 * **Flask** (Web-Framework)
@@ -60,23 +56,23 @@ zahlenraten/
 
 ---
 
-## 🎯 Features
+## Features
 
-* Session-basiertes Login/Logout
-* Zahlenspiel (1–100) mit Feedback: „zu hoch“ / „zu niedrig"
+* Session Login/Logout
+* Zahlenspiel (1–100)
 * Speicherung von Versuchen und Users in SQLite
-* Highscore-Tabelle
+* Highscore speicherung
 * Unit-Tests mit pytest
-* Fokus auf Barrierefreiheit und Security-Hardening
+* Barrierefreiheit und Web-Security
 
 ---
 
-## ✅ Installation & Start
+## Installation & Start
 
 **1) Repository klonen**
 
 ```bash
-git clone <DEIN_REPO_URL>
+git clone
 cd zahlenraten
 ```
 
@@ -105,11 +101,11 @@ flask init-db
 flask run --debug
 ```
 
-[Zahlenraten öffnen](http://127.0.0.1:5000/).
+url: http://127.0.0.1:5000/
 
 ---
 
-## 🕹️ Spielanleitung
+## Spielanleitung
 
 1. Einloggen oder direkten Benutzernamen beim Spielen angeben.
 2. Das Spiel wählt zufällig eine Zahl (1–100).
@@ -118,7 +114,7 @@ flask run --debug
 
 ---
 
-## ⚙️ Tests
+## Tests
 
 Unit-Tests mit pytest:
 
@@ -130,9 +126,7 @@ Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und AP
 
 ---
 
-## ♿ Barrierefreiheit (Accessibility) — Quick-Check
-
-> Diese Liste ist als Arbeits- und Prüf-Liste gedacht. Hake Punkte im Projekt ab und dokumentiere Abweichungen im Issue-Tracker.
+## Barrierefreiheit
 
 * [ ] HTML `lang` gesetzt (`<html lang="de">`)
 * [ ] Semantische Überschriften (H1..H6) in logischer Reihenfolge
@@ -153,7 +147,7 @@ Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und AP
 
 ---
 
-## 🔒 Sicherheit — Penetrationstest-Quick-Checks
+## Sicherheit — Penetrationstest-Quick-Checks
 
 > Diese Tests sind einfache Manuelles-Checks. Führe sie in einer sicheren Testumgebung aus und dokumentiere Ergebnisse.
 
