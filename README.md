@@ -105,7 +105,7 @@ flask init-db
 flask run --debug
 ```
 
-(Zahlenraten öffnen)[http://127.0.0.1:5000/].
+[Zahlenraten öffnen](http://127.0.0.1:5000/).
 
 ---
 
