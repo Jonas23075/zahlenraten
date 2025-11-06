@@ -6,13 +6,13 @@ Zahlenraten ist ein kleines Flask Projekt, bei dem sich die ein Randomizer eine 
 
 ## Technologien & Struktur
 
-* **Python 3.13.9**
-* **Flask** (Web-Framework)
-* **SQLite** (eingebettete DB)
-* **HTML / CSS / JS** (Templates unter `flaskr/templates`)
-* **Blueprints** zur Modularisierung
+* **Python > 3.x**
+* **Flask**
+* **SQLite**
+* **HTML / CSS / JS**
+* **Blueprints**
 
-Projektstruktur (Auszug):
+Projektstruktur (Filesystem (Tree)):
 
 ```
 zahlenraten/
@@ -130,22 +130,22 @@ Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und AP
 
 ## Barrierefreiheit
 
-* [ ] HTML `lang` gesetzt (`<html lang="de">`)
-* [ ] Semantische Überschriften (H1..H6) in logischer Reihenfolge
-* [ ] Alle Bilder haben sinnvolle `alt`-Attribute
-* [ ] Formulare besitzen eindeutige `<label>`-Elemente
-* [ ] Fokuszustände sichtbar (`:focus`) und gut erfassbar
-* [ ] Alle interaktiven Elemente per Tastatur erreichbar (Tab-Reihenfolge prüfen)
-* [ ] Skip-Link zum Hauptinhalt vorhanden (`<a href="#main" class="skip-link">`)
-* [ ] Farben und Kontraste prüfen (Text:Hintergrund >= 4.5:1 für normalen Text)
-* [ ] Informationen nicht ausschließlich über Farbe kommuniziert
-* [ ] Videos/Audio: Untertitel oder Transkript verfügbar
-* [ ] Animierte Inhalte: Abschaltoption
-* [ ] ARIA-Rollen und `aria-live` für dynamische Inhalte korrekt verwendet
-* [ ] Modale Dialoge: `aria-modal="true"` und korrektes Fokus-Management
-* [ ] Fehlermeldungen semantisch und für Screenreader zugänglich
-* [ ] Screenreader-Tests (z. B. NVDA / VoiceOver) dokumentiert
-* [ ] Lighthouse / axe DevTools Audit durchführen und Issues tracken
+* [x] HTML `lang` gesetzt (`<html lang="de">`)
+* [x] Semantische Überschriften (H1..H6) in logischer Reihenfolge
+* [x] Alle Bilder haben sinnvolle `alt`-Attribute
+* [x] Formulare besitzen eindeutige `<label>`-Elemente
+* [x] Fokuszustände sichtbar (`:focus`) und gut erfassbar
+* [x] Alle interaktiven Elemente per Tastatur erreichbar (Tab-Reihenfolge prüfen)
+* [x] Skip-Link zum Hauptinhalt vorhanden (`<a href="#main" class="skip-link">`)
+* [x] Farben und Kontraste prüfen (Text:Hintergrund >= 4.5:1 für normalen Text)
+* [x] Informationen nicht ausschließlich über Farbe kommuniziert
+* [x] Videos/Audio: Untertitel oder Transkript verfügbar
+* [x] Animierte Inhalte: Abschaltoption
+* [x] ARIA-Rollen und `aria-live` für dynamische Inhalte korrekt verwendet
+* [x] Modale Dialoge: `aria-modal="true"` und korrektes Fokus-Management
+* [x] Fehlermeldungen semantisch und für Screenreader zugänglich
+* [x] Screenreader-Tests (z. B. NVDA / VoiceOver) dokumentiert
+* [x] Lighthouse / axe DevTools Audit durchführen und Issues tracken
 
 ---
 
