@@ -1,9 +1,5 @@
 # Zahlenraten
 
-Ein einfaches, barrierefreies Zahlenspiel als Flask-Webanwendung.
-
----
-
 ## Beschreibung
 
 Zahlenraten ist ein kleines Flask Projekt, bei dem sich die ein Randomizer eine Zahl zwischen 1 und 100 ausdenkt und der Nutzer diese erraten muss. Die Anzahl der Versuche wird gespeichert und in einer Highscore-Liste angezeigt.
