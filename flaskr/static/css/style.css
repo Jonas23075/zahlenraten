@@ -437,3 +437,48 @@ body.light-mode .card {
 .score-table tr:hover {
     background-color: #f0f0f0;
 }
+
+
+.flash.success {
+    background: #28a745;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* 🚀 Rakete fliegt auf die Kamera zu */
+.flash.success::after {
+    content: "🚀";
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.2);
+    font-size: 32px;
+    animation: rocketZoom 1.6s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes rocketZoom {
+    0% {
+        left: -40px;
+        transform: translateY(-50%) scale(0.2) rotate(-15deg);
+        opacity: 1;
+    }
+    40% {
+        left: 40%;
+        transform: translateY(-50%) scale(1) rotate(5deg);
+        opacity: 1;
+    }
+    70% {
+        left: 60%;
+        transform: translateY(-50%) scale(2.2) rotate(15deg);
+        opacity: 0.9;
+    }
+    100% {
+        left: 70%;
+        transform: translateY(-50%) scale(4) rotate(25deg);
+        opacity: 0;
+    }
+}

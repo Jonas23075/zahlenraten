@@ -34,7 +34,7 @@ def game():
                 session["guesses"].append((guess, "high"))
             else:
                 message = f"Richtig! Die Zahl war {session['number']}. Versuche: {session['attempts']}"
-                flash(message)
+                flash(message, "success")
                            # ✅ Score speichern
                 from flaskr.db import get_db
                 db = get_db()
