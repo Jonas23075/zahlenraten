@@ -68,15 +68,21 @@ zahlenraten/
 **1) Repository klonen**
 
 ```bash
-git clone
+git clone git@github.com:Jonas23075/zahlenraten.git
 cd zahlenraten
 ```
 
 **2) Virtuelle Umgebung erstellen**
 
+~~Windows~~
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
+```
+**Linux**/~~Mac~~
+```bash
+python3 -m venv .venv
+source ./bin/activate
 ```
 
 **3) Abhängigkeiten installieren**
