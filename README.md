@@ -74,7 +74,7 @@ cd zahlenraten
 
 **2) Virtuelle Umgebung erstellen**
 
-~~Windows~~
+Windows
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
@@ -103,7 +103,7 @@ flask init-db
 flask run --debug
 ```
 
-url: http://127.0.0.1:5000/
+Url: (Zahlenraten)[http://127.0.0.1:5000/]
 
 ---
 

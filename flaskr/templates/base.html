@@ -2,8 +2,16 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Zahlenraten, Schulprojekt"> 
+  <meta name="keywords" content="Zahlenraten, Spiel, Ratespiel, TBS1, Projekt, CSS, HTML, Python, Flask, SQLite"> 
+  <meta name="author" content="Jonas Hennig, Maurice Malessa"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta property="og:title" content="Zahlenraten"> 
+  <meta property="og:description" content="Spiele Zahlenraten"> 
+  <meta name="twitter:card" content="summary_large_image">
   <title>{% block title %}{% endblock %} - Zahlenraten</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" type="image/x-icon" href="static\favicon.ico">
 </head>
 <body class="dark-mode">
 <header>
@@ -24,8 +32,8 @@
   <label class="switch">
     <input type="checkbox" id="modeToggle">
     <span class="slider">
-      <span class="icon sun">☀️</span>
-      <span class="icon moon">🌙</span>
+      <span class="icon sun">🌞</span>
+      <span class="icon moon">🌗</span>
     </span>
   </label>
 </div>
@@ -59,20 +67,20 @@ burger.addEventListener('click', () => {
 });
 
 // Farbschme Wechsel (Dunkel/Hell) um Konstraste zu verbessern 
-const modeCheckbox = document.getElementById('modeToggle');
+const checkbox = document.getElementById('modeToggle');
 const body = document.body;
 
 const savedMode = localStorage.getItem('mode');
 if (savedMode) {
     body.classList.add(savedMode);
-    modeCheckbox.checked = savedMode === 'dark-mode';
+    checkbox.checked = savedMode == 'dark-mode';
 } else {
     body.classList.add('dark-mode');
-    modeCheckbox.checked = true;
+    checkbox.checked = true;
 }
 
-modeCheckbox.addEventListener('change', () => {
-    if (modeCheckbox.checked) {
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
         body.classList.add('dark-mode');
         body.classList.remove('light-mode');
         localStorage.setItem('mode', 'dark-mode');
