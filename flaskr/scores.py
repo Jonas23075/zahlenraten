@@ -13,7 +13,7 @@ def highscores():
         SELECT player_name, attempts, created
         FROM scores
         ORDER BY attempts ASC, created ASC
-        LIMIT 20
+        LIMIT 10
         """
     ).fetchall()
 

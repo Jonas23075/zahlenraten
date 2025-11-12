@@ -2,7 +2,14 @@
 {% block title %}Startseite{% endblock %}
 {% block content %}
 <h2>Willkommen beim Zahlenraten-Spiel!</h2>
+
 {% if not session.get('username') %}
-<p><a href="{{ url_for('auth.register') }}">Registrieren</a> oder <a href="{{ url_for('auth.login') }}">Login</a>, um zu spielen.</p>
+  <p>
+    <a href="{{ url_for('auth.register') }}">Registrieren</a> oder
+    <a href="{{ url_for('auth.login') }}">Login</a>, um zu spielen.
+  </p>
+{% else %}
+  <p>Bereit für eine Runde?</p>
+  <a href="{{ url_for('game.game') }}" class="play-button">Spiel starten</a>
 {% endif %}
 {% endblock %}

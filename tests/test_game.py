@@ -49,17 +49,20 @@ def test_game_guess_correct(client, app):
             sess['username'] = 'testuser'
             sess['number'] = 50
 
-        response = client.post('/game/', data={'guess': '50'})
+        response = client.post('/game/', data={'guess': '50'}, follow_redirects=True)
         assert response.status_code == 200
-        assert b'Richtig' in response.data
+        assert b'GEWONNEN' in response.data  # Prüfe auf die Flash-Nachricht
 
         # Check if score was saved
         with app.app_context():
             from flaskr.db import get_db
             db = get_db()
-            score = db.execute('SELECT * FROM scores WHERE player_name = ?', ('testuser',)).fetchone()
+            score = db.execute(
+                'SELECT * FROM scores WHERE player_name = ?', ('testuser',)
+            ).fetchone()
             assert score is not None
             assert score['attempts'] == 1
+
 
 
 def test_game_invalid_guess(client, app):

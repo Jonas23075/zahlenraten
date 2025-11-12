@@ -371,12 +371,11 @@ body.light-mode .card {
 }
 
 .guess-box.higher {
-    background: rgba(255, 218, 7, 0.473);  
-    color: #222;
+    background: rgba(255, 193, 7, 0.562); 
 }
 
 .guess-box.lower {
-    background: rgba(220, 53, 70, 0.473);
+    background: rgba(220, 53, 70, 0.85); 
 }
 
 .guess-box.correct {
@@ -440,6 +439,20 @@ body.light-mode .card {
 }
 
 
+a {
+    color: #9966ff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+a:visited {
+    color: #9966ff;
+}
+
 .flash.success {
     background: #28a745;
     color: #fff;
@@ -449,3 +462,20 @@ body.light-mode .card {
     border-radius: 12px;
 }
 
+.flash.toLow {
+    background: rgba(255, 193, 7, 0.562); 
+    color: #000000; 
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.flash.toHigh {
+    background: rgba(220, 53, 70, 0.85); 
+    color: #ffffff; 
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}

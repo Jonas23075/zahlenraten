@@ -34,8 +34,12 @@ def register():
                 (username, password_hash),
             )
             db.commit()
-            flash("Registrierung erfolgreich! Du kannst dich jetzt anmelden.", "success")
-            return redirect(url_for("auth.login"))
+            user = db.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
+            session.clear()
+            session["user_id"] = user["id"]
+            session["username"] = user["username"]
+            flash("Registrierung erfolgreich", "success")
+            return redirect(url_for("game.game"))
 
         flash(error, "error")
 

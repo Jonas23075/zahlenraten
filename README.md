@@ -124,7 +124,22 @@ Unit-Tests mit pytest:
 python -m pytest tests/ -v
 ```
 
-Schreibe Tests für die Kernfunktionen: DB-Operationen, Auth, Spiel-Logik und API-Endpunkte.
+Testergebnisse:
+```bash
+tests/test_auth.py::test_register PASSED
+tests/test_auth.py::test_register_existing_user PASSED
+tests/test_auth.py::test_login PASSED
+tests/test_auth.py::test_logout PASSED
+tests/test_auth.py::test_load_logged_in_user PASSED
+tests/test_db.py::test_get_close_db PASSED
+tests/test_db.py::test_init_db_command PASSED
+tests/test_game.py::test_game_get PASSED
+tests/test_game.py::test_game_guess_too_low PASSED
+tests/test_game.py::test_game_guess_too_high PASSED
+tests/test_game.py::test_game_guess_correct PASSED
+tests/test_game.py::test_game_invalid_guess PASSED 
+tests/test_scores.py::test_highscores PASSED   
+```
 
 ---
 

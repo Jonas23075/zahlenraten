@@ -27,15 +27,14 @@ def game():
             session["attempts"] += 1
 
             if guess < session["number"]:
-                message = "Deine Zahl ist zu niedrig!"
+                flash("Deine Zahl ist zu niedrig", "toLow")
                 session["guesses"].append((guess, "low"))
             elif guess > session["number"]:
-                message = "Deine Zahl ist zu hoch!"
+                flash("Deine Zahl ist zu hoch", "toHigh")
                 session["guesses"].append((guess, "high"))
             else:
-                message = f"Richtig! Die Zahl war {session['number']}. Versuche: {session['attempts']}"
+                message = f"GEWONNEN!! Die Zahl war {session['number']}. Versuche: {session['attempts']}"
                 flash(message, "success")
-                           # ✅ Score speichern
                 from flaskr.db import get_db
                 db = get_db()
                 db.execute(
@@ -43,10 +42,9 @@ def game():
                    (session.get("username"), session["attempts"])
                 )
                 db.commit()
-                           # Reset
                 session.pop("number", None)
                 session.pop("attempts", None)
                 session.pop("guesses", None)
-                return render_template("game.html", message=message, guesses=[], attempts=0)
+                return render_template("game.html", guesses=[], attempts=0)
 
-    return render_template("game.html", message=message, guesses=session["guesses"], attempts=session["attempts"])
+    return render_template("game.html", guesses=session["guesses"], attempts=session["attempts"])
