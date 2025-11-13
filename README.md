@@ -82,7 +82,7 @@ python -m venv .venv
 **Linux**/~~Mac~~
 ```bash
 python3 -m venv .venv
-source ./bin/activate
+source ./.venv/bin/activate
 ```
 
 **3) Abhängigkeiten installieren**
@@ -103,7 +103,7 @@ flask init-db
 flask run --debug
 ```
 
-Url: (Zahlenraten)[http://127.0.0.1:5000/]
+Url: [Zahlenraten](http://127.0.0.1:5000/)
 
 ---
 
